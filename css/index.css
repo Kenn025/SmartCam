@@ -1,0 +1,12 @@
+html {
+  font-family: "Inter", sans-serif;
+  scrollbar-gutter: stable;
+}
+
+.container {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
