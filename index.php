@@ -29,7 +29,7 @@
                             <path d="m18 22-3-3 3-3" />
                             <path d="m6 2 3 3-3 3" />
                         </svg>
-                        <span class="hidden font-bold sm:inline-block">SMARTCAM</span>
+                        <span class="hidden font-bold sm:inline-block">AVSMS</span>
                     </a>
                 </div>
 
@@ -149,7 +149,7 @@
                             </div>
 
                             <!-- Stats -->
-                            <div class="flex flex-row justify-center lg:justify-start p-6 mt-12 space-x-16 bg-blue-50 rounded-xl">
+                            <div class="flex flex-row justify-center lg:justify-start mt-12 space-x-8 md:space-x-16 rounded-xl">
                                 <div class="text-center lg:text-left">
                                     <div class="text-xl sm:text-2xl md:text-3xl font-bold text-blue-700">5000</div>
                                     <p class="text-xs sm:text-sm md:text-base text-gray-600">Active Users</p>

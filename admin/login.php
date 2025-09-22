@@ -20,57 +20,97 @@
             <div class="container flex h-16 items-center justify-between">
                 <div class="flex items-center">
                     <a class="group flex items-center space-x-2 transition-opacity hover:opacity-80" href="../index.php">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-switch-camera-icon lucide-switch-camera w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-switch-camera-icon lucide-switch-camera w-6 h-6">
                             <path d=" M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" />
                             <path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5" />
                             <circle cx="12" cy="12" r="3" />
                             <path d="m18 22-3-3 3-3" />
                             <path d="m6 2 3 3-3 3" />
                         </svg>
-                        <span class="hidden font-bold sm:inline-block">SMARTCAM</span>
+                        <span class="hidden font-bold sm:inline-block">AVSMS</span>
                     </a>
                 </div>
 
                 <div class="flex items-center gap-6">
                     <nav class="hidden md:flex items-center space-x-1">
-                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors" href="#">
-                            Features
-                            <span class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors"
+                            href="#">Features
+                            <span
+                                class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                         </a>
-
-                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors" href="#">
-                            FAQ
-                            <span class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors"
+                            href="#">FAQ
+                            <span
+                                class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                         </a>
-
-                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors" href="#">
-                            About
-                            <span class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors"
+                            href="#">About
+                            <span
+                                class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                         </a>
-
-                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors" href="#">
-                            Contact
-                            <span class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                        <a class="group relative px-3 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors"
+                            href="#">Contact
+                            <span
+                                class="absolute left-0 right-0 -bottom-0.5 h-px bg-gradient-to-r from-black/0 via-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                         </a>
                     </nav>
 
                     <div class="hidden md:block h-4 w-px bg-gray-200"></div>
 
-                    <a class="group inline-flex h-9 items-center justify-center rounded-full bg-[hsl(240_5.9%_10%)] px-4 text-sm font-medium text-[hsl(0_0%_98%)] transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-lg " href="../admin/login.php">
+                    <a class="group inline-flex h-9 items-center justify-center rounded-full bg-[hsl(240_5.9%_10%)] px-4 text-sm font-medium text-[hsl(0_0%_98%)] transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-lg "
+                        href="./admin/login.php">
                         Login
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-right-icon lucide-chevron-right ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5">
                             <path d="m9 18 6-6-6-6" />
                         </svg>
                     </a>
 
-                    <button class="md:hidden inline-flex items-center justify-center rounded-full p-2.5 text-[hsl(240_3.8%_46.1%)] hover:text-[hsl(240_10%_3.9%)] transition-colors hover:bg-[hsl(240_4.8%_95.9%)] cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu">
+                    <button id="menu-btn"
+                        class="md:hidden inline-flex items-center justify-center rounded-full p-2.5 text-[hsl(240_3.8%_46.1%)] hover:text-[hsl(240_10%_3.9%)] transition-colors hover:bg-[hsl(240_4.8%_95.9%)] cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-menu-icon lucide-menu">
                             <path d="M4 5h16" />
                             <path d="M4 12h16" />
                             <path d="M4 19h16" />
                         </svg>
                     </button>
                 </div>
+            </div>
+
+            <!-- Blur Bg -->
+            <div id="menu-overlay"
+                class="fixed inset-0 z-40 bg-[hsl(0_0%_100%/.8)] backdrop-blur-sm md:hidden opacity-0 invisible transition-opacity duration-300"></div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="fixed right-0 top-0 bottom-0 w-[280px] bg-[hsl(0_0%_100%)] border-l border-gray-200 z-50 px-6 py-3 md:hidden transform translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="flex items-center justify-between mb-8">
+                    <span class="font-bold">Menu</span>
+                    <button id="close-btn"
+                        class="rounded-md p-2.5 text-[hsl(240_3.8%_46.1%)] hover:text-[hsl(240_10%_3.9%)] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-x-icon lucide-x">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4">
+                    <a class="font-medium py-2 transition-colors block text-[hsl(240_10%_3.9%/.6)] hover:text-[hsl(240_10%_3.9%/.8)]"
+                        href="#">Features</a>
+                    <a class="font-medium py-2 transition-colors block text-[hsl(240_10%_3.9%/.6)] hover:text-[hsl(240_10%_3.9%/.8)]"
+                        href="#">FAQ</a>
+                    <a class="font-medium py-2 transition-colors block text-[hsl(240_10%_3.9%/.6)] hover:text-[hsl(240_10%_3.9%/.8)]"
+                        href="#">About</a>
+                    <a class="font-medium py-2 transition-colors block text-[hsl(240_10%_3.9%/.6)] hover:text-[hsl(240_10%_3.9%/.8)]"
+                        href="#">Contact</a>
+                </nav>
             </div>
         </header>
 
@@ -138,7 +178,7 @@
 
                 <div class="mt-5 mb-10 text-center">
                     <a class="inline-flex items-center text-sm text-[hsl(240_3.8%_46.1%)] 
-                    hover:text-[hsl(240_10%_3.9%)] transition-colors" href="#">
+                    hover:text-[hsl(240_10%_3.9%)] transition-colors" href="../index.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left mr-1">
                             <path d="m15 18-6-6 6-6" />
                         </svg>
@@ -150,8 +190,8 @@
 
         <footer class="bg-black text-[hsl(0_0%_100%/.8)]">
             <div class="container py-16 md:py-24">
-                <div class="grid gap-12 md:grid-cols-12">
-                    <div class="md:col-span-4 space-y-4">
+                <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-6">
+                    <div class="lg:col-span-2 space-y-4">
                         <a class="flex items-center gap-2" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-switch-camera-icon lucide-switch-camera w-6 h-6">
                                 <path d=" M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" />
@@ -160,7 +200,7 @@
                                 <path d="m18 22-3-3 3-3" />
                                 <path d="m6 2 3 3-3 3" />
                             </svg>
-                            <span class="hidden font-bold sm:inline-block">SMARTCAM</span>
+                            <span class="font-bold sm:inline-block">SMARTCAM</span>
                         </a>
                         <p class="text-sm text-[hsl(0_0%_100%/0.6)] max-w-xs">SmartCam helps you secure and monitor your camera footage with real-time alerts and easy dashboard access.</p>
                         <div class="flex items-center gap-4">
@@ -198,7 +238,7 @@
                         </div>
                     </div>
 
-                    <div class="md:col-span-2 space-y-4">
+                    <div class=" space-y-4">
                         <h4 class="text-sm font-semibold text-[hsl(0_0%_100%)]">Quick Links</h4>
                         <ul class="space-y-2">
                             <li>
@@ -213,7 +253,7 @@
                         </ul>
                     </div>
 
-                    <div class="md:col-span-2 space-y-4">
+                    <div class=" space-y-4">
                         <h4 class="text-sm font-semibold text-[hsl(0_0%_100%)]">Legal</h4>
                         <ul class="space-y-2">
                             <li>
@@ -228,7 +268,7 @@
                         </ul>
                     </div>
 
-                    <div class="md:col-span-4 space-y-4">
+                    <div class="lg:col-span-2 space-y-4">
                         <h4 class="text-sm font-semibold text-[hsl(0_0%_100%)]">Contact</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2 text-sm text-[hsl(0_0%_100%/0.6)]">
@@ -261,12 +301,11 @@
         </footer>
     </div>
 
+    <script src="../js/script.js"></script>
+    <script src="../js/mobile-menu.js"></script>
     <script>
         lucide.createIcons();
     </script>
-
-    <script src="../js/script.js"></script>
-
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>

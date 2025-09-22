@@ -121,7 +121,7 @@
                                 </li>
 
                                 <li class="group/menu-item relative">
-                                    <button
+                                    <button onclick="toggleMenu(this)"
                                         class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pe-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] h-8 text-sm">
 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-icon lucide-users" aria-hidden="true">
@@ -138,6 +138,36 @@
                                             <path d="m9 18 6-6-6-6" />
                                         </svg>
                                     </button>
+
+                                    <ul class="submenu h-0 opacity-0 overflow-hidden border-l border-[#e2e8f0] border-opacity-0 mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 px-2.5">
+                                        <li class="group/menu-sub-item relative">
+                                            <a href="#"
+                                                class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
+                                                <span>Security Guard</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="group/menu-sub-item relative">
+                                            <a href="#"
+                                                class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
+                                                <span>Teacher</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="group/menu-sub-item relative">
+                                            <a href="#"
+                                                class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
+                                                <span>Student</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="group/menu-sub-item relative">
+                                            <a href="#"
+                                                class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
+                                                <span>Parent/Guardian</span>
+                                            </a>
+                                        </li>
+                                    </ul>
 
                                     <!-- Tooltip -->
                                     <div
@@ -250,18 +280,124 @@
                             </kbd>
                         </button>
 
-                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none cursor-pointer disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive hover:bg-gray-100 hover:text-accent-foreground size-9 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-icon lucide-bell" aria-hidden="true">
-                                <path d="M10.268 21a2 2 0 0 0 3.464 0" />
-                                <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
-                            </svg>
-                        </button>
+                        <!-- When the admin left scroll down the notification, it must back to top when opened again || new notifs always on top -->
+                        <div class="relative">
+                            <button id="notifBtn"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium cursor-pointer size-9 rounded-full hover:bg-gray-100 relative"
+                                type="button" aria-haspopup="menu">
 
-                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none cursor-pointer disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 hover:bg-accent hover:text-accent-foreground px-4 py-2 has-[>svg]:px-3 relative h-8 w-8 rounded-full" type="button" aria-haspopup="menu" data-state="closed">
-                            <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8">
-                                <span class="bg-gray-100 flex size-full items-center justify-center rounded-full">KF</span>
-                            </span>
-                        </button>
+                                <!-- Bell icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-icon lucide-bell w-5 h-5" aria-hidden="true">
+                                    <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                                    <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+                                </svg>
+
+                                <!-- Red badge -->
+                                <span
+                                    class="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-semibold text-white shadow">
+                                    2
+                                </span>
+                            </button>
+
+                            <!-- Dropdown -->
+                            <div id="notifMenu"
+                                class="absolute right-0 mt-2 w-80 origin-top-right rounded-xl border border-gray-200 bg-white shadow-lg transition-all duration-300 ease-out transform scale-95 opacity-0 pointer-events-none">
+
+                                <!-- Header -->
+                                <div class="flex justify-center px-4 py-3 border-b border-gray-200">
+                                    <h3 class="text-sm font-semibold text-gray-900">Notifications</h3>
+                                </div>
+
+                                <!-- Notifications list -->
+                                <div class="max-h-96 overflow-y-auto divide-y divide-gray-100">
+                                    <!-- Item -->
+                                    <div class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                                        <img src="https://i.pravatar.cc/40?img=1" class="h-10 w-10 rounded-full" />
+                                        <div class="flex-1">
+                                            <p class="text-sm"><span class="font-semibold text-gray-900">Guard John</span> detected an unrecognized ID at <span class="font-medium">Main Gate</span></p>
+                                            <p class="text-xs text-gray-500">Guard • 5 min ago</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition bg-blue-50">
+                                        <img src="https://i.pravatar.cc/40?img=2" class="h-10 w-10 rounded-full" />
+                                        <div class="flex-1">
+                                            <p class="text-sm"><span class="font-semibold text-gray-900">Student Alex</span> scanned ID successfully at <span class="font-medium">North Gate</span></p>
+                                            <p class="text-xs text-gray-500">Student • 28 min ago</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                                        <img src="https://i.pravatar.cc/40?img=3" class="h-10 w-10 rounded-full" />
+                                        <div class="flex-1">
+                                            <p class="text-sm"><span class="font-semibold text-gray-900">Guard Maria</span> flagged a student for missing ID scan in <span class="font-medium">Class 10B</span></p>
+                                            <p class="text-xs text-gray-500">Guard • 1 hour ago</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                                        <img src="https://i.pravatar.cc/40?img=4" class="h-10 w-10 rounded-full" />
+                                        <div class="flex-1">
+                                            <p class="text-sm"><span class="font-semibold text-gray-900">Student Emily</span> attempted entry with expired ID at <span class="font-medium">Side Gate</span></p>
+                                            <p class="text-xs text-gray-500">Student • 3 hours ago</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                                        <img src="https://i.pravatar.cc/40?img=5" class="h-10 w-10 rounded-full" />
+                                        <div class="flex-1">
+                                            <p class="text-sm"><span class="font-semibold text-gray-900">Guard Kevin</span> approved late entry for <span class="font-medium">Student Brian</span></p>
+                                            <p class="text-xs text-gray-500">Guard • 5 hours ago</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                                        <img src="https://i.pravatar.cc/40?img=6" class="h-10 w-10 rounded-full" />
+                                        <div class="flex-1">
+                                            <p class="text-sm"><span class="font-semibold text-gray-900">Teacher Lisa</span> reviewed attendance logs for <span class="font-medium">Class 12A</span></p>
+                                            <p class="text-xs text-gray-500">Teacher • 1 day ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Footer -->
+                                <div class="border-t border-gray-200">
+                                    <a href="#"
+                                        class="block px-4 py-3 text-center text-sm font-medium text-blue-600 hover:bg-blue-50">View all</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile button -->
+                        <div class="relative">
+                            <button id="profileMenuBtn"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none cursor-pointer disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 hover:bg-accent hover:text-accent-foreground px-4 py-2 has-[>svg]:px-3 relative h-8 w-8 rounded-full"
+                                type="button" aria-haspopup="menu">
+                                <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8">
+                                    <span class="bg-gray-100 flex size-full items-center justify-center rounded-full">KF</span>
+                                </span>
+                            </button>
+
+                            <!-- Dropdown -->
+                            <div id="profileMenu"
+                                class="absolute right-0 mt-2 w-56 origin-top-right rounded-xl border border-gray-200 bg-white shadow-lg transition transform scale-95 opacity-0 pointer-events-none">
+                                <div class="px-4 py-3">
+                                    <p class="text-sm font-medium text-gray-900">Kenneth Francisco</p>
+                                    <p class="text-sm text-gray-500 truncate">shurikendev@gmail.com</p>
+                                </div>
+                                <div class="border-t border-gray-200">
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                                </div>
+                                <div class="border-t border-gray-200">
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50">Log out</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -631,6 +767,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/chart.js"></script>
     <script src="../js/sidebar-toggle.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/notification.js"></script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
