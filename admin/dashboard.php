@@ -446,14 +446,14 @@
         </div>
     </div>
 
-    <div class="mobile-overlay hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50"></div>
+    <div class="mobile-overlay fixed inset-0 bg-black/50 opacity-0 invisible z-50 transition-opacity duration-300 ease-in-out" data-state="closed"></div>
 
-    <div class="mobile-sidebar hidden data-[state=open]:animate-in data-[state=closed]:animate-out 
-    fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out 
-    data-[state=closed]:duration-300 data-[state=open]:duration-500
-    data-[state=closed]:slide-out-to-start data-[state=open]:slide-in-from-start 
-    inset-y-0 start-0 h-full border-e border-gray-200 sm:max-w-sm 
-    bg-[oklch(1_0_0)] text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
+    <div class="mobile-sidebar fixed inset-y-0 start-0 z-50 flex flex-col gap-4 
+    shadow-lg border-e border-gray-200 sm:max-w-sm 
+    bg-[oklch(1_0_0)] text-sidebar-foreground 
+    w-[18rem] p-0 [&>button]:hidden
+    transform -translate-x-full transition-transform duration-300 ease-in-out"
+        data-state="closed"
         style="--sidebar-width: 18rem; pointer-events: auto;">
         <div class="flex h-full w-full flex-col">
             <div class="flex flex-col gap-2 p-2">
