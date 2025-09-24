@@ -391,180 +391,556 @@
 
             <!-- Dashboard -->
             <main class="px-4 py-6 @7xl/content:mx-auto @7xl/content:w-full @7xl/content:max-w-7xl">
-                <div class="mb-6 flex items-center justify-between">
-                    <h1 class="text-2xl font-bold tracking-tight">Dashboard</h1>
-                    <div class="flex items-center space-x-2">
-                        <button
-                            class="inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-gray-400/50 bg-black hover:bg-gray-800 text-white shadow h-9 px-4 py-2 cursor-pointer">
-                            Download
+                <div class="mb-2 flex flex-wrap items-center justify-between space-y-2">
+                    <div>
+                        <h2 class="text-2xl font-bold tracking-tight">User List</h2>
+                        <p class="text-">Manage your users and their roles here.</p>
+                    </div>
+
+                    <!-- Add User Button -->
+                    <div>
+                        <button id="addUser"
+                            class="inline-flex items-center gap-2 rounded-lg bg-black px-4 h-10 text-sm font-medium text-white shadow-sm transition-colors hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-400 disabled:pointer-events-none disabled:opacity-50 cursor-pointer">
+                            <span class="hidden sm:inline">Add User</span>
+                            <!-- Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <line x1="19" x2="19" y1="8" y2="14" />
+                                <line x1="22" x2="16" y1="11" y2="11" />
+                            </svg>
                         </button>
+                    </div>
+
+                    <!-- Add User Modal -->
+                    <div id="userModal"
+                        class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-opacity duration-200 opacity-0">
+
+                        <div class="bg-white w-full max-w-lg mx-4 rounded-xl shadow-lg relative transform scale-95 transition-transform duration-200">
+                            <!-- Header -->
+                            <div class="flex items-center justify-between border-b border-gray-300 px-6 py-4">
+                                <div>
+                                    <h2 class="text-lg font-semibold">Add New User</h2>
+                                    <p class="text-sm text-gray-500">Create new user here. Click save when you're done.</p>
+                                </div>
+                                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-x">
+                                        <path d="M18 6 6 18" />
+                                        <path d="m6 6 12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Scrollable Body -->
+                            <div class="max-h-[60vh] overflow-y-auto px-6 py-4 space-y-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">First Name</label>
+                                    <input type="text" id="firstName" placeholder="John"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Middle Name (Optional)</label>
+                                    <input type="text" id="middleName" placeholder="Smith"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Last Name</label>
+                                    <input type="text" id="lastName" placeholder="Doe"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Role</label>
+                                    <select id="role"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30">
+                                        <option selected disabled hidden>Select a role</option>
+                                        <option>Security Guard</option>
+                                        <option>Teacher</option>
+                                        <option>Student</option>
+                                        <option>Parent/Guardian</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Email</label>
+                                    <input type="email" id="email" placeholder="john.doe@gmail.com"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Contact Number</label>
+                                    <input type="tel" id="contact" placeholder="+639123456789"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Parent Contact</label>
+                                    <input type="text" id="parentContact" placeholder="Email or +639123456789"
+                                        pattern="(^\+?\d{7,15}$)|(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)"
+                                        title="Enter a valid email or phone number"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Birthdate</label>
+                                    <input type="date" id="birthdate"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Country</label>
+                                    <select id="country"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Province</label>
+                                    <select id="province"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30">
+                                        <option value="">Select Province</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">City / Municipality</label>
+                                    <select id="city"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30">
+                                        <option value="">Select City</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700">Street / Barangay</label>
+                                    <input type="text" id="street" placeholder="Enter Street or Barangay"
+                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                </div>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="border-t border-gray-300 px-6 py-4 flex justify-end">
+                                <button type="submit"
+                                    class="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
+                                    Save changes
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <section class="flex-1 outline-none space-y-4">
-                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Today's Attendance</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">9,123</h3>
-                                <!-- <p class="text-gray-500 text-xs">+20.1% from last month</p> -->
-                            </div>
-                        </article>
+                <div class="-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-y-0 lg:space-x-12">
+                    <div class="space-y-4 max-sm:has-[div[role=&quot;toolbar&quot;]]:mb-16">
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-1 flex-col-reverse items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
+                                <!-- Search Input -->
+                                <input
+                                    type="text"
+                                    placeholder="Filter users..."
+                                    class="file:text-foreground placeholder:text-gray-400 selection:bg-black selection:text-white
+      border border-gray-300 rounded-md bg-white px-3 py-2 text-sm shadow-sm 
+      transition-all duration-200 ease-in-out outline-none 
+      focus:border-black focus:ring-2 focus:ring-black/80
+      disabled:pointer-events-none disabled:opacity-50
+      w-full sm:w-[200px] lg:w-[250px]" />
 
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Active Cameras</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera-icon lucide-camera w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
-                                    <circle cx="12" cy="13" r="3" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">5/5</h3>
-                            </div>
-                        </article>
+                                <!-- Filter Buttons -->
+                                <div class="flex gap-2">
+                                    <!-- Status -->
+                                    <button
+                                        class="inline-flex items-center justify-center gap-1.5 rounded-md border border-gray-300 
+        bg-white px-3 py-2 text-sm font-medium shadow-sm 
+        transition-all duration-200 ease-in-out
+        hover:bg-gray-100 hover:text-gray-900
+        focus:outline-none h-9">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
+                                            <path d="M12 6v6l4 2" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </svg>
+                                        <span class="inline">Status</span>
+                                    </button>
 
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Alerts</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
-                                    <path d="M12 9v4" />
-                                    <path d="M12 17h.01" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">2</h3>
-                            </div>
-                        </article>
-
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Flagged</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flag-off-icon lucide-flag-off w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="M16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528" />
-                                    <path d="m2 2 20 20" />
-                                    <path d="M4 22V4" />
-                                    <path d="M7.656 2H8c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10.347" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">5</h3>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-7">
-
-                        <article class="bg-[oklch(1 0 0)] text-[oklch(0.129 0.042 264.695)] flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm col-span-1 lg:col-span-4">
-                            <header class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
-                                <h2 class="leading-none font-semibold">Overview</h2>
-                            </header>
-                            <figure class="px-6 ps-5.5">
-                                <div class="h-[400px] w-full">
-                                    <canvas id="overviewChart"></canvas>
+                                    <!-- Role -->
+                                    <button
+                                        class="inline-flex items-center justify-center gap-1.5 rounded-md border border-gray-300 
+        bg-white px-3 py-2 text-sm font-medium shadow-sm 
+        transition-all duration-200 ease-in-out
+        hover:bg-gray-100 hover:text-gray-900
+        focus:outline-none h-9">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round">
+                                            <path d="M18 20a6 6 0 0 0-12 0" />
+                                            <circle cx="12" cy="10" r="4" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </svg>
+                                        <span class="inline">Role</span>
+                                    </button>
                                 </div>
-                                <figcaption class="sr-only">Bar chart showing monthly student attendance</figcaption>
-                            </figure>
-                        </article>
-
-                        <div class="bg-[oklch(1 0 0)] text-[oklch(0.129 0.042 264.695)] flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm col-span-1 lg:col-span-3">
-                            <div class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
-                                <div class="leading-none font-semibold">Recent Attendance</div>
-                                <div class="text-muted-foreground text-sm">SmartCam captured 999 students today.</div>
                             </div>
 
-                            <div class="px-6">
-                                <div class="space-y-8">
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-purple-100 flex size-full items-center justify-center rounded-full">KF</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Kenneth Francisco</p>
-                                                <p class="text-muted-foreground text-sm">12342022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
+                        </div>
+
+                        <div class="overflow-hidden rounded-md border border-gray-300">
+                            <div class="relative w-full overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-full">
+                                <table class="w-full caption-bottom text-sm border border-gray-200 rounded-md overflow-hidden">
+                                    <thead class="bg-blue-100 [&_tr]:border-b">
+                                        <tr class="border-b transition-colors group/row border-gray-300">
+                                            <th
+                                                class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap sticky start-0 z-10 rounded-tl-md">
+                                                <button
+                                                    class="peer border border-gray-300 bg-white size-4 shrink-0 rounded-[4px] shadow-xs transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-blue-500 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 data-[state=checked]:text-white"></button>
+                                            </th>
+
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">ID</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Full Name</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Role</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Email</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Contact Number</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Parent Contact</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Birthdate</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Address</th>
+                                            <th class="text-gray-900 h-12 px-4 text-start align-middle font-medium whitespace-nowrap">Actions</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody class="[&_tr:last-child]:border-0">
+                                        <tr class="hover:bg-gray-50 border-b border-gray-300 transition-colors duration-200 ease-in-out group/row">
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap sticky start-0 z-10 bg-white transition-colors duration-200 ease-in-out group-hover/row:bg-gray-50">
+                                                <button
+                                                    class="peer border border-gray-300 bg-white size-4 shrink-0 rounded-[4px] shadow-xs transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-blue-500 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 data-[state=checked]:text-white">
+                                                </button>
+                                            </td>
+
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">1</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Kevin Stratvert</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Teacher</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">kevinstvrt@gmail.com</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">+639352863828</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">email/contact number</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">2000-02-05</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Philippines, Cebu City</div>
+                                            </td>
+
+                                            <!-- Actions -->
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="flex items-center gap-3">
+                                                    <!-- Edit User Button -->
+                                                    <button id="editUser"
+                                                        class="inline-flex items-center justify-center rounded-md border border-blue-500 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 shadow-sm transition-colors duration-200 ease-in-out hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                                                        Edit
+                                                    </button>
+
+                                                    <!-- Edit Modal -->
+                                                    <div id="editModal"
+                                                        class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-opacity duration-200 opacity-0">
+                                                        <div
+                                                            class="bg-white w-full max-w-lg mx-4 rounded-xl shadow-lg relative transform scale-95 transition-transform duration-200">
+
+                                                            <!-- Header -->
+                                                            <div class="flex items-center justify-between border-b border-gray-300 px-6 py-4">
+                                                                <div>
+                                                                    <h2 class="text-lg font-semibold">Edit User</h2>
+                                                                    <p class="text-sm text-gray-500">Update user details and click save when done.</p>
+                                                                </div>
+                                                                <button id="closeEditModal" class="text-gray-500 hover:text-gray-700">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                                        stroke-linejoin="round" class="lucide lucide-x">
+                                                                        <path d="M18 6 6 18" />
+                                                                        <path d="m6 6 12 12" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+
+                                                            <!-- Scrollable Body -->
+                                                            <div class="max-h-[60vh] overflow-y-auto px-6 py-4 space-y-3">
+                                                                <input type="hidden" id="editUserId" />
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">First Name</label>
+                                                                    <input type="text" id="editFirstName" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Middle Name (Optional)</label>
+                                                                    <input type="text" id="editMiddleName" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Last Name</label>
+                                                                    <input type="text" id="editLastName" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Role</label>
+                                                                    <select id="editRole" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30">
+                                                                        <option selected disabled hidden>Select a role</option>
+                                                                        <option>Security Guard</option>
+                                                                        <option>Teacher</option>
+                                                                        <option>Student</option>
+                                                                        <option>Parent/Guardian</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Email</label>
+                                                                    <input type="email" id="editEmail" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Contact Number</label>
+                                                                    <input type="tel" id="editContact" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Parent Contact</label>
+                                                                    <input type="text" id="editParentContact" pattern="(^\+?\d{7,15}$)|(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)"
+                                                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Birthdate</label>
+                                                                    <input type="date" id="editBirthdate" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Country</label>
+                                                                    <select id="editCountry" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30"></select>
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Province</label>
+                                                                    <select id="editProvince" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30"></select>
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">City / Municipality</label>
+                                                                    <select id="editCity" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30"></select>
+                                                                </div>
+
+                                                                <div>
+                                                                    <label class="block text-sm font-medium text-gray-700">Street / Barangay</label>
+                                                                    <input type="text" id="editStreet" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-black focus:ring focus:ring-black/30" />
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Footer -->
+                                                            <div class="border-t border-gray-300 px-6 py-4 flex justify-end">
+                                                                <button type="submit" id="saveEdit"
+                                                                    class="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black">
+                                                                    Save changes
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Archive Button -->
+                                                    <button
+                                                        class="inline-flex items-center justify-center rounded-md border border-amber-500 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-700 shadow-sm transition-colors duration-200 ease-in-out hover:bg-amber-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+                                                        Archive
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="hover:bg-gray-50 border-b border-gray-300 transition-colors duration-200 ease-in-out group/row">
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap sticky start-0 z-10 bg-white transition-colors duration-200 ease-in-out group-hover/row:bg-gray-50">
+                                                <button
+                                                    class="peer border border-gray-300 bg-white size-4 shrink-0 rounded-[4px] shadow-xs transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-blue-500 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 data-[state=checked]:text-white">
+                                                </button>
+                                            </td>
+
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">2</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Mike Nazarenoob</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Student</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">mikedoe@gmail.com</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">+639178888888</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">contact number only</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">1995-07-20</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Philippines, Nueva Ecija</div>
+                                            </td>
+
+                                            <!-- Actions -->
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="flex items-center gap-3">
+                                                    <!-- Edit Button -->
+                                                    <button
+                                                        class="inline-flex items-center justify-center rounded-md border border-blue-500 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 shadow-sm transition-colors duration-200 ease-in-out hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                                                        Edit
+                                                    </button>
+
+                                                    <!-- Archive Button -->
+                                                    <button
+                                                        class="inline-flex items-center justify-center rounded-md border border-amber-500 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-700 shadow-sm transition-colors duration-200 ease-in-out hover:bg-amber-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+                                                        Archive
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="hover:bg-gray-50 border-b border-gray-300 transition-colors duration-200 ease-in-out group/row">
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap sticky start-0 z-10 bg-white transition-colors duration-200 ease-in-out group-hover/row:bg-gray-50">
+                                                <button
+                                                    class="peer border border-gray-300 bg-white size-4 shrink-0 rounded-[4px] shadow-xs transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-blue-500 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 data-[state=checked]:text-white">
+                                                </button>
+                                            </td>
+
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">3</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Maria Altina</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Parent</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">maria.altina@gmail.com</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">+639171234567</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">contact number only</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">1995-11-23</div>
+                                            </td>
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="max-w-40">Philippines, Bulacan</div>
+                                            </td>
+
+                                            <!-- Actions -->
+                                            <td class="px-4 py-3 align-middle whitespace-nowrap transition-colors duration-200 ease-in-out">
+                                                <div class="flex items-center gap-3">
+                                                    <!-- Edit Button -->
+                                                    <button
+                                                        class="inline-flex items-center justify-center rounded-md border border-blue-500 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 shadow-sm transition-colors duration-200 ease-in-out hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                                                        Edit
+                                                    </button>
+
+                                                    <!-- Archive Button -->
+                                                    <button
+                                                        class="inline-flex items-center justify-center rounded-md border border-amber-500 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-700 shadow-sm transition-colors duration-200 ease-in-out hover:bg-amber-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+                                                        Archive
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="flex items-center justify-between overflow-clip px-2 @max-2xl/content:flex-col-reverse @max-2xl/content:gap-4" style="overflow-clip-margin: 1px;">
+                            <div class="flex w-full items-center justify-between">
+                                <div class="flex w-[100px] items-center justify-center text-sm font-medium @2xl/content:hidden">
+                                    Page 1 of 100
+                                </div>
+                                <div class="flex items-center gap-2 @max-2xl/content:flex-row-reverse">
+                                    <button class="border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 h-8 w-[70px]">
+                                        <span style="pointer-events: none;">10</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down size-4 opacity-50">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </button>
+                                    <p class="hidden text-sm font-medium sm:block">Rows per page</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center sm:space-x-6 lg:space-x-8">
+                                <div class="flex w-[100px] items-center justify-center text-sm font-medium @max-3xl/content:hidden">
+                                    Page 1 of 100
+                                </div>
+
+                                <div class="flex items-center space-x-2">
+                                    <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border border-gray-300 bg-white hover:bg-gray-100 shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 has-[>svg]:px-3 size-8 p-0">
+                                        <span class="sr-only">Go to previous page</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left w-4 h-4 opacity-50">
+                                            <path d="m15 18-6-6 6-6" />
+                                        </svg>
+                                    </button>
+
+                                    <div class="flex items-center">
+                                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-black text-white shadow-xs hover:bg-black/90 py-2 has-[>svg]:px-3 h-8 min-w-8 px-2">
+                                            <span class="sr-only">Go to page 1</span>
+                                            1
+                                        </button>
                                     </div>
 
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-green-100 flex size-full items-center justify-center rounded-full">DG</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Don Galo Agus</p>
-                                                <p class="text-muted-foreground text-sm">91012022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
+                                    <div class="flex items-center">
+                                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border border-gray-300 bg-white shadow-xs hover:bg-gray-100 hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 py-2 has-[>svg]:px-3 h-8 min-w-8 px-2">
+                                            <span class="sr-only">Go to page 2</span>
+                                            2
+                                        </button>
                                     </div>
 
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-lime-100 flex size-full items-center justify-center rounded-full">ME</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Mhike Evangelista</p>
-                                                <p class="text-muted-foreground text-sm">1415022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
+                                    <div class="flex items-center">
+                                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border border-gray-300 bg-white shadow-xs hover:bg-gray-100 hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 py-2 has-[>svg]:px-3 h-8 min-w-8 px-2">
+                                            <span class="sr-only">Go to page 3</span>
+                                            3
+                                        </button>
                                     </div>
 
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-orange-100 flex size-full items-center justify-center rounded-full">JM</span>
+                                    <div class="flex items-center">
+                                        <span class="text-muted-foreground px-1 text-sm">
+                                            ...
                                         </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Jay-l Millanes</p>
-                                                <p class="text-muted-foreground text-sm">56782022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
                                     </div>
 
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-red-100 flex size-full items-center justify-center rounded-full">MD</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Mark Aian Dela Cruz</p>
-                                                <p class="text-muted-foreground text-sm">1213022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
+                                    <div class="flex items-center">
+                                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border border-gray-300 bg-white shadow-xs hover:bg-gray-100 hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 py-2 has-[>svg]:px-3 h-8 min-w-8 px-2">
+                                            <span class="sr-only">100</span>
+                                            100
+                                        </button>
                                     </div>
 
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-sky-100 flex size-full items-center justify-center rounded-full">AT</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Arjel Talplacido</p>
-                                                <p class="text-muted-foreground text-sm">1617022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
-                                    </div>
+                                    <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border border-gray-300 bg-white hover:bg-gray-100 shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 has-[>svg]:px-3 size-8 p-0">
+                                        <span class="sr-only">Go to next page</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right w-4 h-4 opacity-50">
+                                            <path d="m9 18 6-6-6-6" />
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </main>
         </div>
     </div>
@@ -742,6 +1118,8 @@
     <script src="../js/sidebar-toggle.js"></script>
     <script src="../js/profile.js"></script>
     <script src="../js/notification.js"></script>
+    <script src="../js/addUser.js"></script>
+    <script src="../js/editUser.js"></script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>

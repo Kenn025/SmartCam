@@ -121,8 +121,14 @@
                                 </li>
 
                                 <li class="group/menu-item relative">
-                                    <button onclick="toggleMenu(this)"
-                                        class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pe-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] h-8 text-sm">
+                                    <a href="./userManagement.php"
+                                        class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start outline-hidden
+    transition-[width,height,padding] focus-visible:ring-2
+    disabled:pointer-events-none disabled:opacity-50
+    [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0
+    h-8 text-sm
+    hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)]
+    focus-visible:ring-[oklch(0.704_0.04_256.788)]">
 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-icon lucide-users" aria-hidden="true">
                                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -131,29 +137,7 @@
                                             <circle cx="9" cy="7" r="4" />
                                         </svg>
                                         <span>User Management</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="lucide lucide-chevron-right ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
-                                            aria-hidden="true">
-                                            <path d="m9 18 6-6-6-6" />
-                                        </svg>
-                                    </button>
-
-                                    <ul class="submenu h-0 opacity-0 overflow-hidden border-l border-[#e2e8f0] border-opacity-0 mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 px-2.5">
-                                        <li class="group/menu-sub-item relative">
-                                            <a href="./users.php"
-                                                class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
-                                                <span>Users</span>
-                                            </a>
-                                        </li>
-
-                                        <li class="group/menu-sub-item relative">
-                                            <a href="#"
-                                                class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
-                                                <span>Archive</span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    </a>
 
                                     <!-- Tooltip -->
                                     <div
@@ -161,7 +145,6 @@
                                         User Management
                                     </div>
                                 </li>
-
 
                                 <li class="group/menu-item relative">
                                     <a href="#"
@@ -391,185 +374,117 @@
 
             <!-- Dashboard -->
             <main class="px-4 py-6 @7xl/content:mx-auto @7xl/content:w-full @7xl/content:max-w-7xl">
-                <div class="mb-6 flex items-center justify-between">
-                    <h1 class="text-2xl font-bold tracking-tight">Dashboard</h1>
-                    <div class="flex items-center space-x-2">
-                        <button
-                            class="inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-gray-400/50 bg-black hover:bg-gray-800 text-white shadow h-9 px-4 py-2 cursor-pointer">
-                            Download
+                <div class="mb-2 flex flex-wrap items-center justify-between space-y-2">
+                    <div>
+                        <h2 class="text-2xl font-bold tracking-tight">User List</h2>
+                        <p class="text-">Manage your users and their roles here.</p>
+                    </div>
+
+                    <div>
+                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-3 focus-visible:ring-offset-1 focus-visible:ring-gray-400/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-black text-white shadow-xs hover:bg-gray-800 h-9 px-4 py-2 has-[>svg]:px-3 space-x-1 cursor-pointer">
+                            <span>Add User</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-plus-icon lucide-user-plus" aria-hidden="true">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <line x1="19" x2="19" y1="8" y2="14" />
+                                <line x1="22" x2="16" y1="11" y2="11" />
+                            </svg>
                         </button>
                     </div>
                 </div>
 
-                <section class="flex-1 outline-none space-y-4">
-                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Today's Attendance</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">9,123</h3>
-                                <!-- <p class="text-gray-500 text-xs">+20.1% from last month</p> -->
-                            </div>
-                        </article>
+                <div class="-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-y-0 lg:space-x-12">
+                    <div class="space-y-4 max-sm:has-[div[role=&quot;toolbar&quot;]]:mb-16">
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-1 flex-col-reverse items-start gap-y-2 sm:flex-row sm:items-center sm:space-x-2">
+                                <input class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive h-8 w-[150px] lg:w-[250px]" type="text" placeholder="Filter users...">
 
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Active Cameras</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera-icon lucide-camera w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
-                                    <circle cx="12" cy="13" r="3" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">5/5</h3>
-                            </div>
-                        </article>
+                                <div class="flex gap-x-2">
+                                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 h-8 border-dashed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-plus-icon lucide-circle-plus size-4">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M8 12h8" />
+                                            <path d="M12 8v8" />
+                                        </svg>
+                                        Status
+                                    </button>
 
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Alerts</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
-                                    <path d="M12 9v4" />
-                                    <path d="M12 17h.01" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">2</h3>
-                            </div>
-                        </article>
-
-                        <article class="bg-white text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-6 shadow-sm">
-                            <div class="@container/card-header auto-rows-min grid-rows-[auto_auto] gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6 flex flex-row items-center justify-between space-y-0 pb-2">
-                                <h2 class="text-sm font-medium">Flagged</h2>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flag-off-icon lucide-flag-off w-5 h-5 text-gray-500" aria-hidden="true">
-                                    <path d="M16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528" />
-                                    <path d="m2 2 20 20" />
-                                    <path d="M4 22V4" />
-                                    <path d="M7.656 2H8c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10.347" />
-                                </svg>
-                            </div>
-                            <div class="px-6">
-                                <h3 class="text-3xl font-extrabold text-gray-900">5</h3>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-7">
-
-                        <article class="bg-[oklch(1 0 0)] text-[oklch(0.129 0.042 264.695)] flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm col-span-1 lg:col-span-4">
-                            <header class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
-                                <h2 class="leading-none font-semibold">Overview</h2>
-                            </header>
-                            <figure class="px-6 ps-5.5">
-                                <div class="h-[400px] w-full">
-                                    <canvas id="overviewChart"></canvas>
-                                </div>
-                                <figcaption class="sr-only">Bar chart showing monthly student attendance</figcaption>
-                            </figure>
-                        </article>
-
-                        <div class="bg-[oklch(1 0 0)] text-[oklch(0.129 0.042 264.695)] flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm col-span-1 lg:col-span-3">
-                            <div class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
-                                <div class="leading-none font-semibold">Recent Attendance</div>
-                                <div class="text-muted-foreground text-sm">SmartCam captured 999 students today.</div>
-                            </div>
-
-                            <div class="px-6">
-                                <div class="space-y-8">
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-purple-100 flex size-full items-center justify-center rounded-full">KF</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Kenneth Francisco</p>
-                                                <p class="text-muted-foreground text-sm">12342022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-green-100 flex size-full items-center justify-center rounded-full">DG</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Don Galo Agus</p>
-                                                <p class="text-muted-foreground text-sm">91012022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-lime-100 flex size-full items-center justify-center rounded-full">ME</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Mhike Evangelista</p>
-                                                <p class="text-muted-foreground text-sm">1415022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-orange-100 flex size-full items-center justify-center rounded-full">JM</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Jay-l Millanes</p>
-                                                <p class="text-muted-foreground text-sm">56782022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-red-100 flex size-full items-center justify-center rounded-full">MD</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Mark Aian Dela Cruz</p>
-                                                <p class="text-muted-foreground text-sm">1213022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-center gap-4">
-                                        <span class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-9 w-9">
-                                            <span class="bg-sky-100 flex size-full items-center justify-center rounded-full">AT</span>
-                                        </span>
-                                        <div class="flex flex-1 flex-wrap items-center justify-between">
-                                            <div class="space-y-1">
-                                                <p class="text-sm leading-none font-medium">Arjel Talplacido</p>
-                                                <p class="text-muted-foreground text-sm">1617022@holycross.edu.ph</p>
-                                            </div>
-                                            <div class="font-medium">7:00 AM</div>
-                                        </div>
-                                    </div>
+                                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 h-8 border-dashed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-plus-icon lucide-circle-plus size-4">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M8 12h8" />
+                                            <path d="M12 8v8" />
+                                        </svg>
+                                        Role
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="overflow-hidden rounded-md border">
+                            <div class="relative w-full overflow-x-auto">
+                                <table class="w-full caption-bottom text-sm">
+                                    <thead class="[&_tr]:border-b">
+                                        <tr class="hover:bg-gray-50 border-b transition-colors group/row">
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white sticky start-0 z-10 rounded-tl-md" colspan="1">
+                                                <button class="peer border border-gray-300 bg-white size-4 shrink-0 rounded-[4px] shadow-sm transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-blue-500 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 data-[state=checked]:text-white"></button>
+                                            </th>
+
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">ID</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Full Name</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Role</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Email</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Contact</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Parent Contact</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Birthdate</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Address</th>
+                                            <th class="text-gray-900 h-10 px-2 text-start align-middle font-medium whitespace-nowrap bg-white">Actions</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody class="[&_tr:last-child]:border-0">
+                                        <tr class="hover:bg-gray-50 border-b transition-colors group/row">
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white sticky start-0 z-10">
+                                                <button class="peer border border-gray-300 bg-white size-4 shrink-0 rounded-[4px] shadow-sm transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-blue-500 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 data-[state=checked]:text-white"></button>
+                                            </td>
+
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">1</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">Kevin Stratvert</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">Teacher</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">kevinstvrt@gmail.com</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">+639352863828</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">email/contact number</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">2000-02-05</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">
+                                                <div class="max-w-36">Philippines, Cebu City</div>
+                                            </td>
+                                            <td class="p-2 align-middle whitespace-nowrap bg-white">...</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </section>
+                </div>
             </main>
         </div>
     </div>
 
-    <!-- Sidebar Toggle -->
     <div class="mobile-overlay fixed inset-0 bg-black/50 opacity-0 invisible z-50 transition-opacity duration-300 ease-in-out" data-state="closed"></div>
 
     <div class="mobile-sidebar fixed inset-y-0 start-0 z-50 flex flex-col gap-4 
@@ -612,7 +527,7 @@
                     <div class=" flex h-8 shrink-0 items-center rounded-md px-2 text-gray-700 text-xs font-medium outline-hidden transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0 group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0">General</div>
                     <ul class="flex w-full min-w-0 flex-col gap-1">
                         <li class="group/menu-item relative">
-                            <a href="./dashboard.php"
+                            <a href="#"
                                 class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start outline-hidden
     transition-[width,height,padding] focus-visible:ring-2
     disabled:pointer-events-none disabled:opacity-50
@@ -632,6 +547,13 @@
                                 </svg>
                                 <span>Dashboard</span>
                             </a>
+
+                            <!-- Tooltip -->
+                            <div
+                                class="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 z-20 -translate-y-1/2 whitespace-nowrap rounded-md bg-gray-900 px-2 py-1 text-xs text-white opacity-0 translate-x-[-6px] transition-all duration-300 ease-out group-hover/menu-item:opacity-100 group-hover/menu-item:translate-x-0 group-data-[collapsible=icon]:pointer-events-auto group-data-[collapsible=icon]:block hidden before:absolute before:top-1/2 before:-translate-y-1/2 before:-left-[4px] before:border-y-[6px] before:border-r-[6px] before:border-y-transparent before:border-r-gray-900 content-['']">
+                                Dashboard
+                            </div>
+
                         </li>
 
                         <li class="group/menu-item relative">
@@ -654,10 +576,16 @@
                                 </svg>
                                 <span>Live Monitoring</span>
                             </a>
+
+                            <!-- Tooltip -->
+                            <div
+                                class="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 z-20 -translate-y-1/2 whitespace-nowrap rounded-md bg-gray-900 px-2 py-1 text-xs text-white opacity-0 translate-x-[-6px] transition-all duration-300 ease-out group-hover/menu-item:opacity-100 group-hover/menu-item:translate-x-0 group-data-[collapsible=icon]:pointer-events-auto group-data-[collapsible=icon]:block hidden before:absolute before:top-1/2 before:-translate-y-1/2 before:-left-[4px] before:border-y-[6px] before:border-r-[6px] before:border-y-transparent before:border-r-gray-900 content-['']">
+                                Live Monitoring
+                            </div>
                         </li>
 
                         <li class="group/menu-item relative">
-                            <button onclick="toggleMenu(this)"
+                            <button
                                 class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pe-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] h-8 text-sm">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-icon lucide-users" aria-hidden="true">
@@ -675,32 +603,16 @@
                                 </svg>
                             </button>
 
-                            <ul class="submenu h-0 opacity-0 overflow-hidden border-l border-[#e2e8f0] border-opacity-0 mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 px-2.5">
-                                <li class="group/menu-sub-item relative">
-                                    <a href="./users.php"
-                                        class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
-                                        <span>Users</span>
-                                    </a>
-                                </li>
-
-                                <li class="group/menu-sub-item relative">
-                                    <a href="#"
-                                        class="text-sidebar-foreground ring-sidebar-ring hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] active:bg-sidebar-accent active:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-inherit data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground text-sm group-data-[collapsible=icon]:hidden">
-                                        <span>Archive</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            <!-- Tooltip -->
+                            <div
+                                class="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 z-20 -translate-y-1/2 whitespace-nowrap rounded-md bg-gray-900 px-2 py-1 text-xs text-white opacity-0 translate-x-[-6px] transition-all duration-300 ease-out group-hover/menu-item:opacity-100 group-hover/menu-item:translate-x-0 group-data-[collapsible=icon]:pointer-events-auto group-data-[collapsible=icon]:block hidden before:absolute before:top-1/2 before:-translate-y-1/2 before:-left-[4px] before:border-y-[6px] before:border-r-[6px] before:border-y-transparent before:border-r-gray-900 content-['']">
+                                User Management
+                            </div>
                         </li>
 
                         <li class="group/menu-item relative">
-                            <a href="#"
-                                class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start outline-hidden
-    transition-[width,height,padding] focus-visible:ring-2
-    disabled:pointer-events-none disabled:opacity-50
-    [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0
-    h-8 text-sm
-    hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)]
-    focus-visible:ring-[oklch(0.704_0.04_256.788)]">
+                            <button
+                                class="peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start outline-hidden ring-sidebar-ring transition-[width,height,padding] focus-visible:ring-2 focus-visible:ring-[oklch(0.704_0.04_256.788)] active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pe-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 hover:bg-[oklch(0.968_0.007_247.896)] hover:text-[oklch(0.208_0.042_265.755)] h-8 text-sm">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-text-icon lucide-scroll-text" aria-hidden="true">
@@ -710,7 +622,19 @@
                                     <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />
                                 </svg>
                                 <span>Attendance</span>
-                            </a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-chevron-right ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                                    aria-hidden="true">
+                                    <path d="m9 18 6-6-6-6" />
+                                </svg>
+                            </button>
+
+                            <!-- Tooltip -->
+                            <div
+                                class="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 z-20 -translate-y-1/2 whitespace-nowrap rounded-md bg-gray-900 px-2 py-1 text-xs text-white opacity-0 translate-x-[-6px] transition-all duration-300 ease-out group-hover/menu-item:opacity-100 group-hover/menu-item:translate-x-0 group-data-[collapsible=icon]:pointer-events-auto group-data-[collapsible=icon]:block hidden before:absolute before:top-1/2 before:-translate-y-1/2 before:-left-[4px] before:border-y-[6px] before:border-r-[6px] before:border-y-transparent before:border-r-gray-900 content-['']">
+                                Attendance
+                            </div>
                         </li>
 
                         <li class="group/menu-item relative">
@@ -729,6 +653,12 @@
                                 </svg>
                                 <span>Reports</span>
                             </a>
+
+                            <!-- Tooltip -->
+                            <div
+                                class="pointer-events-none absolute left-[calc(100%+10px)] top-1/2 z-20 -translate-y-1/2 whitespace-nowrap rounded-md bg-gray-900 px-2 py-1 text-xs text-white opacity-0 translate-x-[-6px] transition-all duration-300 ease-out group-hover/menu-item:opacity-100 group-hover/menu-item:translate-x-0 group-data-[collapsible=icon]:pointer-events-auto group-data-[collapsible=icon]:block hidden before:absolute before:top-1/2 before:-translate-y-1/2 before:-left-[4px] before:border-y-[6px] before:border-r-[6px] before:border-y-transparent before:border-r-gray-900 content-['']">
+                                Reports
+                            </div>
                         </li>
                     </ul>
                 </div>
